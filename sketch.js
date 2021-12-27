@@ -70,10 +70,7 @@ function setup() {
   }  
   
 
-  //criar objetos de partículas
-  if(frameCount%60 === 0){
-    particle.push(new particle(random(width/2-10, width/2+10), 10, 10));
-   }
+
     
 }
 function draw() {
@@ -82,6 +79,11 @@ function draw() {
  
   Engine.update(engine);
   ground.display();
+
+    //criar objetos de partículas
+    if(frameCount%60 === 0){
+      particle.push(new Particle(random(width/2-10, width/2+10), 10, 10));
+     }
   
   //exibir os plinkos
   for (var i = 0; i < plinkos.length; i++) {
@@ -94,5 +96,9 @@ function draw() {
   }
 
   //exibir as partículas
-  this.color = color(random(0,225), random(0,225), random(0,225));
+  for (var j = 0; j < particle.length; j++) {
+   
+    particle[j].display();
+  }
+  //this.color = color(random(0,225), random(0,225), random(0,225));
 }
